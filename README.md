@@ -32,7 +32,7 @@ This Python project utilizes Tweepy, a Python library for accessing the Twitter 
 `yellow_phrases = ['phrase one', 'phrase two']  # Add yellow flag phrases`
 
 ### Execute the script:
-`python twitter_keyword_blocker.py`
+`python blockbot.py`
 
 ### Disclaimer
 I'm probably underestimating the rate limiter so stay tuned
