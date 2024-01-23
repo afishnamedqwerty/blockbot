@@ -1,4 +1,4 @@
-# Twitter Keyword Blocker
+# X Streaming keyword & phrase Blockbot
 
 ## Project Overview
 This Python project utilizes Tweepy, a Python library for accessing the Twitter API v2, to automatically block users who reply or quote tweets with specific keywords or phrases. It's designed to filter out unwanted interactions based on predefined criteria.
