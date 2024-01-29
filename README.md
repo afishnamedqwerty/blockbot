@@ -10,6 +10,7 @@ This Python project utilizes Tweepy, a Python library for accessing the Twitter 
 ## Requirements
 - Python 3.x
 - Tweepy library
+- Twitter Developer token and OPENAI API access
 
 ## Installation
 1. Ensure Python is installed on your system.
@@ -20,6 +21,8 @@ This Python project utilizes Tweepy, a Python library for accessing the Twitter 
 ## Configuration
 1. Obtain a Twitter API Bearer Token from Twitter Developer Portal
 2. Replace `'YOUR_BEARER_TOKEN'` in the script with your actual Bearer Token
+3. Replace `'OPENAI_API_KEY'` in the script with your OPENAI api key
+4. Tune `semantic_simlarity()` sensitvity using the `threshold=` parameter. 
 
 ## Usage 
 1. Set the `BEARER_TOKEN` with your Twitter API Bearer Token
