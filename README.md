@@ -1,4 +1,4 @@
-# X Streaming keyword & phrase Blockbot
+# X keyword & phrase Blockbot
 
 ## Project Overview
 This Python project utilizes Tweepy, a Python library for accessing the Twitter API v2, to automatically block users who reply or quote tweets with specific keywords or phrases. It's designed to filter out unwanted interactions based on predefined criteria.
@@ -24,11 +24,12 @@ This Python project utilizes Tweepy, a Python library for accessing the Twitter 
 ## Usage 
 1. Set the `BEARER_TOKEN` with your Twitter API Bearer Token
 2. Define the target Twitter account in the `rule` variable.
-3. Customize `red_keywords` and `yellow_phrases` lists with your criteria for blocking.
+3. Customize `red_words` and `yellow_phrases` lists in their designated `.txt` files with your criteria for blocking.
 4. Run the script to start monitoring and blocking as per the defined rules.
+5. `blocked_users_log.txt` maintains a running log of all blocked users.
 
 `BEARER_TOKEN = 'YOUR_BEARER_TOKEN'  # Replace with your Bearer Token`
-`red_keywords = ['keyword1', 'keyword2']  # Add red flag keywords`
+`red_words = ['keyword1', 'keyword2']  # Add red flag keywords`
 `yellow_phrases = ['phrase one', 'phrase two']  # Add yellow flag phrases`
 
 ### Execute the script:
