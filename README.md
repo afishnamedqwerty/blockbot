@@ -22,14 +22,14 @@ This Python project utilizes Tweepy, a Python library for accessing the Twitter 
 1. Obtain a Twitter API Bearer Token from Twitter Developer Portal
 2. Replace `'YOUR_BEARER_TOKEN'` in the script with your actual Bearer Token
 3. Replace `'OPENAI_API_KEY'` in the script with your OPENAI api key
-4. Tune `semantic_simlarity()` sensitvity using the `threshold=` parameter. 
+4. Tune `semantic_cosine_simlarity()` sensitvity using the `threshold=` parameter. This function must replace `is_semantically_similar()` in the `handle_tweet` function to utilize cosine similarity instead of boolean response.
 
 ## Usage 
 1. Set the `BEARER_TOKEN` with your Twitter API Bearer Token
 2. Define the target Twitter account in the `rule` variable.
 3. Customize `red_words` and `yellow_phrases` lists in their designated `.txt` files with your criteria for blocking.
 4. Run the script to start monitoring and blocking as per the defined rules.
-5. `blocked_users_log.txt` maintains a running log of all blocked users.
+5. `blocked_users_log.txt` maintains a running log of all blocked users and offending tweets.
 
 `BEARER_TOKEN = 'YOUR_BEARER_TOKEN'  # Replace with your Bearer Token`
 `red_words = ['keyword1', 'keyword2']  # Add red flag keywords`
