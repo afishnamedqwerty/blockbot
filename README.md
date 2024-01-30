@@ -8,21 +8,23 @@ This Python project utilizes Tweepy, a Python library for accessing the Twitter 
 - Automatically block users who use certain red flag keywords or yellow flag phrases in their tweets.
 
 ## Requirements
-- Python 3.x
+- Python >=3.8
 - Tweepy library
 - Twitter Developer token and OPENAI API access
 
 ## Installation
-1. Ensure Python is installed on your system.
-2. Install Tweepy using pip:
+1. Ensure Python is installed on your system `python --version`.
+2. Download the blockbot project to a local repo: `git clone https://github.com/afishnamedqwerty/blockbot.git`
+3. Install Tweepy using pip:
    ```bash
-   pip install tweepy
+   pip install tweepy, numpy 
 
 ## Configuration
 1. Obtain a Twitter API Bearer Token from Twitter Developer Portal
 2. Replace `'YOUR_BEARER_TOKEN'` in the script with your actual Bearer Token
 3. Replace `'OPENAI_API_KEY'` in the script with your OPENAI api key
-4. Tune `semantic_cosine_simlarity()` sensitvity using the `threshold=` parameter. This function must replace `is_semantically_similar()` in the `handle_tweet` function to utilize cosine similarity instead of boolean response.
+4. Add your `red_words` and `yellow_phrases` to their respective `.txt` files
+5. (Optional) ~Requires sklearn import~ Tune `semantic_cosine_simlarity()` sensitivity using the `threshold=` parameter to switch to a more sensitive block detector based on cosine similarity correlation to each phrase in the `yellow_phrases.txt` file. This function must replace `is_semantically_similar()` in the `handle_tweet` function to utilize cosine similarity instead of boolean response (a zero shot prompt comparing semantic similarity which can be customized).
 
 ## Usage 
 1. Set the `BEARER_TOKEN` with your Twitter API Bearer Token

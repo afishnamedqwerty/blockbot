@@ -2,7 +2,7 @@ import tweepy
 import openai
 from datetime import datetime
 import numpy as np 
-from sklearn.metrics.pairwise import cosine_similarity
+#from sklearn.metrics.pairwise import cosine_similarity
 
 # Twitter API v2 credentials
 BEARER_TOKEN = 'YOUR_BEARER_TOKEN'
@@ -33,7 +33,7 @@ checked_phrases_cache = {}
 # example_tweets = [
 #     "Really dislike those Detroit players",  # Semantically similar to 'i hate the detroit lions'
 #     "Studying stars is so boring",           # Semantically similar to 'astronomy isn\'t cool'
-#     "That guy Tate is really controversial"  # Semantically similar to 'andrew tate', might need to make positive/negative semantic association buckets
+#     "That guy West is really controversial"  # Semantically similar to 'kanye west', might need to make positive/negative semantic association buckets
 # ]
 
 def is_semantically_similar(tweet_text, phrases):
@@ -43,7 +43,7 @@ def is_semantically_similar(tweet_text, phrases):
             return checked_phrases_cache[(tweet_text, phrase)]
 
         response = openai.Completion.create(
-            model="text-davinci-003",
+            model="text-embedding-ada-002",
             prompt=f"Tweet: '{tweet_text}'\nPhrase: '{phrase}'\nIs the tweet semantically similar to the phrase? (Yes or No)",
             temperature=0,
             max_tokens=1
@@ -57,7 +57,7 @@ def is_semantically_similar(tweet_text, phrases):
 def get_embedding(text):
     response = openai.Embedding.create(
         input=text,
-        model="text-similarity-davinci-001"
+        model="text-embedding-ada-002"
     )
     return np.array(response['data'][0]['embedding'])
 
@@ -70,8 +70,8 @@ def semantic_cosine_similarity(tweet_text, phrases, threshold=0.5):
             similarity_score = checked_phrases_cache[(tweet_text, phrase)]
         else:
             phrase_embedding = get_embedding(phrase)
-            similarity_score = cosine_similarity([tweet_embedding], [phrase_embedding])[0][0]
-            checked_phrases_cache[(tweet_text, phrase)] = similarity_score
+            #similarity_score = cosine_similarity([tweet_embedding], [phrase_embedding])[0][0]
+            #checked_phrases_cache[(tweet_text, phrase)] = similarity_score
 
         if similarity_score > threshold:
             return True
